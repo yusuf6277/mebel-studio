@@ -2701,12 +2701,12 @@ const MODULE_CATALOG = [
   },
   {
     id: 'pb-450-1el', code: 'PB-450.1E.L', name: '1-eshik chap (450)', level: 'base', category: 'standard', mode: 'kitchen',
-    width: 450, height: 850, depth: 580, doors: 1, drawers: 0, shelves: 1, hasCountertop: true, hasPlinth: true, handle: 'bar', icon: 'door1',
+    width: 450, height: 850, depth: 580, doors: 1, hingeSide: 'left', drawers: 0, shelves: 1, hasCountertop: true, hasPlinth: true, handle: 'bar', icon: 'door1',
     fr3dPath: 'oshxona bloklari\\mdm modul\\paski blok\\PB-450.1E.L.fr3d',
   },
   {
     id: 'pb-450-1er', code: 'PB-450.1E.R', name: '1-eshik o‘ng (450)', level: 'base', category: 'standard', mode: 'kitchen',
-    width: 450, height: 850, depth: 580, doors: 1, drawers: 0, shelves: 1, hasCountertop: true, hasPlinth: true, handle: 'bar', icon: 'door1',
+    width: 450, height: 850, depth: 580, doors: 1, hingeSide: 'right', drawers: 0, shelves: 1, hasCountertop: true, hasPlinth: true, handle: 'bar', icon: 'door1',
     fr3dPath: 'oshxona bloklari\\mdm modul\\paski blok\\PB-450.1E.R.fr3d',
   },
   {
@@ -4878,7 +4878,9 @@ class CadEngine3D {
 
       for (let d = 0; d < doors; d++) {
         const pivot = new THREE.Group();
-        const isRightDoor = doors === 2 && d === 1;
+        const isRightDoor =
+          (doors === 2 && d === 1) ||
+          (doors === 1 && (mod.hingeSide === 'right' || /[.\-]R\b/i.test(mod.code || '')));
 
         if (mod.liftUp) {
           // Top-hinged Aventos lift-up door
@@ -5128,6 +5130,7 @@ function createModule(template, overrides = {}) {
     height: template.height,
     depth: template.depth,
     doors: template.doors ?? 0,
+    hingeSide: template.hingeSide || 'left',
     drawers: template.drawers ?? 0,
     shelves: template.shelves ?? 0,
     liftUp: Boolean(template.liftUp),
