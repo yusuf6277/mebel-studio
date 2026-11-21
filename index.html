@@ -2081,35 +2081,35 @@ html, body {
             </div>
           </div>
 
-          <!-- TAB: AI ASSISTANT (SIDEBAR SHORTCUT) -->
+          <!-- TAB: AI ASSISTANT (SIDEBAR SHORTCUT + .B3D CLIENT SHOWCASE) -->
           <div class="tool-pane" id="pane-ai">
-            <div class="pane-eyebrow">AQLLI YORDAMCHI · OFLAYN</div>
-            <h2 class="pane-title">Tezkor loyihalash</h2>
-            <p class="pane-desc">Bir tugma bilan to‘liq oshxona yoki shkaf yig‘ing, yoki o‘zbekcha buyruq yozing.</p>
+            <div class="pane-eyebrow">MIJOZGA KO‘RSATISH · TAYYOR .B3D</div>
+            <h2 class="pane-title">Tayyor modellar</h2>
+            <p class="pane-desc">Mijoz oldida 1 bosishda real 3D loyiha, kroy va aniq narxni ko‘rsating:</p>
             <div class="preset-stack">
-              <button class="preset-btn" data-cmd="L shakldagi oshxona yasa">
-                <strong>📐 L-shakl Burchakli oshxona + Penal</strong>
-                <span>A: 3.45m × L: 2.4m · Burchak moyka + K-600-DM-3 Penal + Muzlatgich</span>
+              <button class="preset-btn" data-cmd="n15">
+                <strong>⭐ N15 · Zamonaviy GOLA (n15.b3d)</strong>
+                <span>3.4 m · Kashmer + Eman + Penal K-600-DM-3 + Aventos + Antresol</span>
               </button>
-              <button class="preset-btn" data-cmd="3 metrli zamonaviy oshxona yasa">
-                <strong>3.0 m Zamonaviy oshxona</strong>
-                <span>Muzlatgich + Rakovina + Tortma + Plita + Tepa + Antresol</span>
+              <button class="preset-btn" data-cmd="n16">
+                <strong>📐 N16 · L-Shakl Burchakli (n16.b3d)</strong>
+                <span>A: 3.45m × L: 2.4m · Shalfey + Burchak moyka + Penal + Vitrina</span>
               </button>
-              <button class="preset-btn" data-cmd="3.6 metrli oshxona yasa">
-                <strong>3.6 m Premium oshxona</strong>
-                <span>To‘liq 6 ta pastki + 5 ta tepa + Aventos + Duxovka penali</span>
+              <button class="preset-btn" data-cmd="kashmir 2400">
+                <strong>✨ Kashmir Akril 2400 (Kompakt)</strong>
+                <span>2.4 m · Akril Krem Glyans + Qora Mramor + Kargo + Antresol</span>
               </button>
-              <button class="preset-btn" data-cmd="2.4 metrli shkaf yasa">
-                <strong>2.4 m 4-eshikli shkaf</strong>
-                <span>Polkali + Shtangali + Tortmali bo‘limlar</span>
+              <button class="preset-btn" data-cmd="votan 4000">
+                <strong>🪵 Dub Votan + Kashmir 4000</strong>
+                <span>4.0 m · Muzlatgich + PMM + Penal K-600-DM-3 + To‘liq Antresol</span>
               </button>
-              <button class="preset-btn" data-cmd="Fasadni shalfey qil">
-                <strong>Shalfey + Yong‘oq dizayni</strong>
-                <span>Zamonaviy matt ranglar uyg‘unligi</span>
+              <button class="preset-btn" data-cmd="n18">
+                <strong>🖤 N18 · Grafit Loft 4400 (n18.b3d)</strong>
+                <span>4.4 m · Grafit Mat + Oynali Vitrina Penal K-450-ST-2 + Qora Mramor</span>
               </button>
-              <button class="preset-btn" data-cmd="Fasadni grafit qil">
-                <strong>Grafit Loft dizayni</strong>
-                <span>To‘q zamonaviy mat fasad va qora ruchkalar</span>
+              <button class="preset-btn" data-cmd="spalniy oyna fasad">
+                <strong>🚪 Spalniy Oyna Fasad (3.0 m)</strong>
+                <span>3.0 × 2.4 m · Oynali eshiklar + Blum tortmalar + Shtanga</span>
               </button>
             </div>
           </div>
@@ -3873,6 +3873,166 @@ function buildPresetLayout(presetName, state, createModuleFn) {
     };
   }
 
+  if (presetName === 'b3d-n15') {
+    state.projectName = 'N15 — Zamonaviy GOLA Oshxona (n15.b3d)';
+    state.mode = 'kitchen';
+    state.room.width = 3400;
+    state.room.depth = 2400;
+    state.materials.facadeMatId = 'lmdf-cashmere';
+    state.materials.facadeColor = '#d5cbbd';
+    state.materials.bodyMatId = 'ldsp-oak-sonoma';
+    state.materials.bodyColor = '#c4a77d';
+    state.materials.countertopMatId = 'ct-calacatta';
+    state.materials.countertopColor = '#f1f0ec';
+
+    let x = 0;
+    x += add('gola-900-my', x, 0, { width: 800 });
+    x += add('gola-600-pm', x, 0);
+    x += add('gola-450-3y', x, 0, { width: 600 });
+    x += add('base-hob-600', x, 0, { handle: 'gola' });
+    x += add('gola-150-bt', x, 0, { width: 200 });
+    x += add('penal-k600-dm3', x, 0);
+
+    let ux = 0;
+    ux += add('upper-door-800', ux, upperY);
+    ux += add('upper-aventos-900', ux, upperY, { width: 900 });
+    ux += add('upper-hood-600', ux, upperY + 120);
+    ux += add('tb-450-r', ux, upperY, { width: 500 });
+
+    let mx = 0;
+    mx += add('mezz-800', mx, mezzY);
+    mx += add('mezz-600', mx, mezzY, { width: 900 });
+    mx += add('mezz-600', mx, mezzY);
+    mx += add('mezz-600', mx, mezzY, { width: 500 });
+    mx += add('mezz-600', mx, mezzY);
+
+    return { modules, message: 'N15 (n15.b3d · 3.4m GOLA Kashmer + Penal K-600-DM-3) ochildi!' };
+  }
+
+  if (presetName === 'b3d-kashmir-2400') {
+    state.projectName = 'Oshxona Kashmir Akril 2400 (.b3d)';
+    state.mode = 'kitchen';
+    state.room.width = 2400;
+    state.room.depth = 2200;
+    state.materials.facadeMatId = 'lmdf-gloss-cream';
+    state.materials.facadeColor = '#f5efe6';
+    state.materials.bodyMatId = 'ldsp-white';
+    state.materials.bodyColor = '#eef0f2';
+    state.materials.countertopMatId = 'ct-nero-marquina';
+    state.materials.countertopColor = '#22262b';
+
+    let x = 0;
+    x += add('pb-600-my', x, 0);
+    x += add('base-drawer-600', x, 0, { width: 550 });
+    x += add('base-hob-600', x, 0);
+    x += add('pb-450-1er', x, 0);
+    x += add('pb-200-1y', x, 0);
+
+    let ux = 0;
+    ux += add('upper-door-600', ux, upperY);
+    ux += add('upper-door-600', ux, upperY, { width: 550 });
+    ux += add('upper-hood-600', ux, upperY + 120);
+    ux += add('tb-450-r', ux, upperY, { width: 650 });
+
+    let mx = 0;
+    mx += add('mezz-600', mx, mezzY);
+    mx += add('mezz-600', mx, mezzY, { width: 550 });
+    mx += add('mezz-600', mx, mezzY);
+    mx += add('mezz-600', mx, mezzY, { width: 650 });
+
+    return { modules, message: 'Oshxona Kashmir Akril 2400 (Kompakt + Qora Mramor) ochildi!' };
+  }
+
+  if (presetName === 'b3d-votan-4000') {
+    state.projectName = 'Oshxona Dub Votan + Kashmir 4000 (.b3d)';
+    state.mode = 'kitchen';
+    state.room.width = 4000;
+    state.room.depth = 2600;
+    state.materials.facadeMatId = 'lmdf-cashmere';
+    state.materials.facadeColor = '#d5cbbd';
+    state.materials.bodyMatId = 'ldsp-oak-craft';
+    state.materials.bodyColor = '#b88c56';
+    state.materials.countertopMatId = 'ct-oak-butcher';
+    state.materials.countertopColor = '#b58958';
+
+    let x = 0;
+    x += add('tall-fridge-600', x, 0);
+    const uxStart = x;
+    x += add('base-sink-800', x, 0);
+    x += add('base-pmm-600', x, 0);
+    x += add('base-drawer-600', x, 0);
+    x += add('base-hob-600', x, 0);
+    x += add('pb-200-1y', x, 0);
+    x += add('penal-k600-dm3', x, 0);
+
+    let ux = uxStart;
+    ux += add('upper-door-800', ux, upperY);
+    ux += add('upper-aventos-900', ux, upperY, { width: 600 });
+    ux += add('upper-glass-600', ux, upperY);
+    ux += add('upper-hood-600', ux, upperY + 120);
+    ux += add('tb-450-r', ux, upperY, { width: 200 });
+
+    let mx = 0;
+    mx += add('mezz-600', mx, mezzY);
+    mx += add('mezz-800', mx, mezzY);
+    mx += add('mezz-600', mx, mezzY);
+    mx += add('mezz-600', mx, mezzY);
+    mx += add('mezz-800', mx, mezzY);
+    mx += add('mezz-600', mx, mezzY);
+
+    return { modules, message: 'Oshxona Dub Votan + Kashmir 4000 mm (To‘liq Antresol + Penal) ochildi!' };
+  }
+
+  if (presetName === 'b3d-n18-loft') {
+    state.projectName = 'N18 — Grafit Loft 4400 + Vitrina (n18.b3d)';
+    state.mode = 'kitchen';
+    state.room.width = 4400;
+    state.room.depth = 2600;
+    state.materials.facadeMatId = 'lmdf-graphite';
+    state.materials.facadeColor = '#374151';
+    state.materials.bodyMatId = 'ldsp-walnut';
+    state.materials.bodyColor = '#6e4c36';
+    state.materials.countertopMatId = 'ct-nero-marquina';
+    state.materials.countertopColor = '#22262b';
+
+    let x = 0;
+    x += add('tall-fridge-600', x, 0);
+    x += add('penal-k450-st2', x, 0);
+    const uxStart = x;
+    x += add('base-sink-800', x, 0);
+    x += add('base-pmm-600', x, 0);
+    x += add('base-drawer-800', x, 0, { width: 750 });
+    x += add('base-hob-600', x, 0);
+    x += add('penal-k600-dm3', x, 0);
+
+    let ux = uxStart;
+    ux += add('upper-door-800', ux, upperY);
+    ux += add('upper-glass-600', ux, upperY);
+    ux += add('upper-aventos-900', ux, upperY, { width: 750 });
+    ux += add('upper-hood-600', ux, upperY + 120);
+
+    return { modules, message: 'N18 (n18.b3d · 4.4m Grafit Loft + Oynali Vitrina Penal) ochildi!' };
+  }
+
+  if (presetName === 'b3d-spalniy-oyna') {
+    state.projectName = 'Spalniy Oyna Fasad 3000 (spalniy OYNA FASAD.b3d)';
+    state.mode = 'wardrobe';
+    state.room.width = 3000;
+    state.room.depth = 2400;
+    state.materials.facadeMatId = 'ldsp-walnut';
+    state.materials.facadeColor = '#6e4c36';
+    state.materials.bodyMatId = 'ldsp-ash-shimo';
+    state.materials.bodyColor = '#d4c8b8';
+
+    let x = 0;
+    x += add('ward-rail-800', x, 0);
+    x += add('ward-drawers-800', x, 0);
+    x += add('ward-shelves-600', x, 0);
+    x += add('ward-rail-800', x, 0);
+
+    return { modules, message: 'Spalniy Oyna Fasad (3.0m · Oynali + Blum Tortmalar + Shtanga) ochildi!' };
+  }
+
   if (presetName === 'wardrobe-2400') {
     state.mode = 'wardrobe';
     state.room.width = 2400;
@@ -3889,7 +4049,26 @@ function executeTextCommand(rawText, state, helpers) {
   const text = (rawText || '').trim().toLowerCase();
   if (!text) return { ok: false, message: 'Buyruq kiriting.' };
 
-  // 1. Preset kitchen / wardrobe generation
+  // 1. User's Ready .b3d Showcase Models + Preset layouts
+  const b3dMap = [
+    { keys: ['n15', 'н15'], preset: 'b3d-n15' },
+    { keys: ['kashmir', 'akril', '2400'], preset: 'b3d-kashmir-2400' },
+    { keys: ['votan', '4000', '4 metr'], preset: 'b3d-votan-4000' },
+    { keys: ['n16', 'н16'], preset: 'kitchen-l-shape' },
+    { keys: ['n18', 'н18', 'loft', '4400'], preset: 'b3d-n18-loft' },
+    { keys: ['spalniy', 'oyna fasad', 'спальн'], preset: 'b3d-spalniy-oyna' },
+  ];
+  for (const item of b3dMap) {
+    if (item.keys.some((k) => text.includes(k))) {
+      const res = buildPresetLayout(item.preset, state, helpers.createModule);
+      if (res) {
+        state.modules = res.modules;
+        state.selectedId = res.modules[0]?.id || null;
+        return { ok: true, message: res.message, cameraReset: true };
+      }
+    }
+  }
+
   if (
     (text.includes('l shakl') || text.includes('l-shakl') || text.includes('burchak')) &&
     (text.includes('oshxona') || text.includes('yasa') || text.includes('yig'))
